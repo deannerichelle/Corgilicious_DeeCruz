@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".Menu">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/corgilicious"
+        android:textSize="40sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:id="@+id/menu_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/rectangle">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="160dp"
+                android:layout_height="200dp"
+                android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/colorPrimary">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+                        <!--ube latte-->
+                        <ImageView
+                            android:id="@+id/imgV_ube_latte"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/ube_latte"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <FrameLayout
+                            android:layout_width="65dp"
+                            android:layout_height="65dp">
+
+                            <!-- Empty heart ImageView -->
+                            <ImageView
+                                android:id="@+id/img_heart_empty1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/heart_selector"
+                                android:scaleType="center" />
+
+                        <!-- LottieAnimationView for heart fill animation -->
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/lav_heartAnimation_1"
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            app:lottie_fileName="heart_like.json"
+                            app:lottie_autoPlay="false"
+                            app:lottie_loop="false"
+                            android:clickable="true">
+                        </com.airbnb.lottie.LottieAnimationView>
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/ube_latte"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="160dp"
+                android:layout_height="200dp"
+                android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/colorPrimary">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+                        <!--cappuccino-->
+                        <ImageView
+                            android:id="@+id/imgV_cappuccino"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/cappuccino"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <FrameLayout
+                            android:layout_width="65dp"
+                            android:layout_height="65dp">
+
+                        <!-- Empty heart ImageView -->
+                        <ImageView
+                            android:id="@+id/img_heart_empty2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/heart_selector"
+                            android:scaleType="center" />
+
+                        <!-- LottieAnimationView for heart fill animation -->
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/lav_heartAnimation_2"
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            app:lottie_fileName="heart_like.json"
+                            app:lottie_autoPlay="false"
+                            app:lottie_loop="false"
+                            android:clickable="true">
+                        </com.airbnb.lottie.LottieAnimationView>
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cappuccino"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="160dp"
+                android:layout_height="200dp"
+                android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/colorPrimary">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+                        <!--oreo frappe-->
+                        <ImageView
+                            android:id="@+id/imgV_oreo_frappe"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/oreo_frappe"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <FrameLayout
+                            android:layout_width="65dp"
+                            android:layout_height="65dp">
+
+                        <!-- Empty heart ImageView -->
+                        <ImageView
+                            android:id="@+id/img_heart_empty3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/heart_selector"
+                            android:scaleType="center" />
+
+                        <!-- LottieAnimationView for heart fill animation -->
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/lav_heartAnimation_3"
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            app:lottie_fileName="heart_like.json"
+                            app:lottie_autoPlay="false"
+                            app:lottie_loop="false"
+                            android:clickable="true">
+                        </com.airbnb.lottie.LottieAnimationView>
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/oreo_frapuccino"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="160dp"
+                android:layout_height="200dp"
+                android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/colorPrimary">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+                        <!--Corgi stickers-->
+                        <ImageView
+                            android:id="@+id/imgV_corgi_sticker"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/corgi_sticker"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <FrameLayout
+                            android:layout_width="65dp"
+                            android:layout_height="65dp">
+
+                        <!-- Empty heart ImageView -->
+                        <ImageView
+                            android:id="@+id/img_heart_empty4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/heart_selector"
+                            android:scaleType="center" />
+
+                        <!-- LottieAnimationView for heart fill animation -->
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/lav_heartAnimation_4"
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            app:lottie_fileName="heart_like.json"
+                            app:lottie_autoPlay="false"
+                            app:lottie_loop="false"
+                            android:clickable="true">
+                        </com.airbnb.lottie.LottieAnimationView>
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/corgi_stickers"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:text="Cart"
+        />
+</RelativeLayout>

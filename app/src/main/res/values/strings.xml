@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Corgilicious_DeeCruz</string>
+    <string name="corgilicious">Corgilicious Coffee</string>
+    <string name="start_order">Start Order</string>
+
+    <!--for the menu items-->
+    <string name="cappuccino">Cappuccino</string>
+    <string name="ube_latte">Ube Latte</string>
+    <string name="oreo_frapuccino">Oreo Frappuccino</string>
+    <string name="corgi_stickers">Corgi Stickers</string>
+    <!--for the separate activities to show menu items description-->
+    <string name="ube_info">
+        This creamy and colorful ube latte is sweet and refreshing! Ube extract is mixed with ice and almond milk, then topped with strong espresso.
+        \n\nCalories: 280
+    </string>
+    <string name="capppu_info">
+        This is an espresso drink with equal parts steamed milk of your choice, milk foam and espresso.
+        \n\nCalories: 80
+    </string>
+    <string name="oreo_info">
+        A sweet treat made with rich chocolate flavor, a hint of coffee and OREO® Cookie Pieces. It\'s blended with ice then hand topped with whipped light cream and a few more OREO® Cookie Pieces.
+        \n\nCalories: 550
+    </string>
+    <string name="sticker_info">
+        Purchase one of our adorable Corgi stickers. The corgi images itself are swapped with new ones every month!
+    </string>
+
+    <!--for the description activity-->
+    <string name="price">$ 8.00</string>
+    <string name="addToOrder">Add to Order</string>
+    <string name="test">Test</string>
+    <string name="add">+</string>
+    <string name="remove">-</string>
+    <string name="amount">1</string>
+
+</resources>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Details">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/rectangle">
+        <TextView
+            android:id="@+id/tv_coffee_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ube_latte"
+            android:textSize="26sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="200dp"
+            android:layout_marginStart="16dp"/>
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/price"
+            android:textSize="26sp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="16dp"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/white"/>
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/add"
+            android:textSize="26sp"
+            android:textColor="@color/white"
+            android:layout_below="@+id/tv_coffee_name"
+            style="?attr/materialButtonOutlinedStyle"/>
+        <Button
+            android:id="@+id/btn_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_below="@+id/tv_coffee_name"
+            android:layout_toEndOf="@id/btn_add"
+            style="?attr/materialButtonOutlinedStyle"/>
+        <Button
+            android:id="@+id/btn_remove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/remove"
+            android:textSize="26sp"
+            android:textColor="@color/white"
+            android:layout_toEndOf="@+id/btn_amount"
+            android:layout_below="@id/tv_coffee_name"
+            style="?attr/materialButtonOutlinedStyle"/>
+        <TextView
+            android:id="@+id/tv_itemDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_add"
+            android:text="@string/ube_info"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_margin="6dp"/>
+        <TextView
+            android:id="@+id/tv_total_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: $0.00"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/btn_addToOrder"
+            android:layout_marginStart="16dp" />
+        <!--"@id/btn_orderNow"-->
+
+        <Button
+            android:id="@+id/btn_addToOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/addToOrder" />
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/imgV_coffeeImg"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:layout_margin="4dp"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
