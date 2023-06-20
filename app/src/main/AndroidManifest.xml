@@ -12,9 +12,7 @@
         android:theme="@style/Theme.Corgilicious_DeeCruz"
         tools:targetApi="31">
         <activity
-            android:name=".OrderActivity"
-            android:label="Order Summary"
-            android:parentActivityName=".Details"
+            android:name=".CartActivity"
             android:exported="false" />
         <activity
             android:name=".Details"

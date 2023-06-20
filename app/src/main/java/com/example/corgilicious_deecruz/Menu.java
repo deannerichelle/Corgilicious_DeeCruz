@@ -12,12 +12,15 @@ import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
 
+import java.util.ArrayList;
+
 public class Menu extends AppCompatActivity {
 
     LottieAnimationView likeUbe, likeCappuccino, likeOreo, likeSticker;
     ImageView imgV_ube_latte, imgV_cappuccino, imgV_oreo_frappe, imgV_corgi_sticker;
     Button btnCart;
 
+    ArrayList<CartItem> cartItems = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,8 +122,9 @@ public class Menu extends AppCompatActivity {
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent orderIntent = new Intent(Menu.this, OrderActivity.class);
-                startActivity(orderIntent);
+                Intent cartIntent = new Intent(Menu.this, CartActivity.class);
+                cartIntent.putParcelableArrayListExtra("cartItems", cartItems);
+                startActivity(cartIntent);
             }
         });
     }
@@ -131,5 +135,3 @@ public class Menu extends AppCompatActivity {
     }
 
 }
-
-//how to add a cart function where it will show all of the orders as a list

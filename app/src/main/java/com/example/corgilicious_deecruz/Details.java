@@ -8,25 +8,30 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class Details extends AppCompatActivity implements View.OnClickListener{
 
+    ArrayList<CartItem> cartItems = new ArrayList<>(); //this will store the menu items when "addToOrder button" is clicked
     ImageView imgVCoffeeImg;
     TextView tvCoffeeName, tvItemDetails, tvTotalAmount;
-    Button btnAdd, btnAmount, btnRemove, btnAddToOrder;
+    Button btnAdd, btnAmount, btnRemove, btnAddToOrder, btnCancelOrder;
 
     String[] menuItems = {"Ube Latte", "Cappuccino", "Oreo Frappuccino", "Corgi Stickers"};
-    String[] menuDetails = {"This creamy and colorful ube latte is sweet and refreshing! Ube extract is mixed with ice and almond milk, then topped with strong espresso." + "\n" +
+    String[] menuDetails = {"This creamy and colorful ube latte is sweet and refreshing! Ube extract is mixed with ice and almond milk, then topped with strong espresso." +
             "Calories: 280",
-            "This is an espresso drink with equal parts steamed milk of your choice, milk foam and espresso." + "\n" +
+            "This is an espresso drink with equal parts steamed milk of your choice, milk foam and espresso." +
                     "Calories: 80",
-            "A sweet treat made with rich chocolate flavor, a hint of coffee and OREO® Cookie Pieces. It's blended with ice then hand topped with whipped light cream and a few more OREO® Cookie Pieces." + "\n" +
+            "A sweet treat made with rich chocolate flavor, a hint of coffee and OREO® Cookie Pieces. It's blended with ice then hand topped with whipped light cream and a few more OREO® Cookie Pieces." + "" +
                     "Calories: 550",
             "Purchase one of our adorable Corgi stickers. The corgi images itself are swapped with new ones every month!"};
     int[] menuImages = {R.drawable.ube_latte, R.drawable.cappuccino, R.drawable.oreo_frappe, R.drawable.corgi_sticker};
     int amount = 0;
     double itemPrice = 8.00; //price per item
     double totalPrice = 0.00; //total price
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +47,14 @@ public class Details extends AppCompatActivity implements View.OnClickListener{
         btnAmount = findViewById(R.id.btn_amount);
         btnRemove = findViewById(R.id.btn_remove);
         btnAddToOrder = findViewById(R.id.btn_addToOrder);
+        btnCancelOrder = findViewById(R.id.btn_cancelOrder);
+
 
         btnAdd.setOnClickListener(this);
         btnAmount.setOnClickListener(this);
         btnRemove.setOnClickListener(this);
         btnAddToOrder.setOnClickListener(this);
+        btnCancelOrder.setOnClickListener(this);
 
         btnAmount.setText(String.valueOf(amount));
 
@@ -58,12 +66,12 @@ public class Details extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
+        switch(view.getId()) {
             case R.id.btn_add:
                 amount = amount + 1;
                 totalPrice = amount * itemPrice;
                 btnAmount.setText(String.valueOf(amount));
-                tvTotalAmount.setText("Total: $" + String.format("%.2f", totalPrice));
+                tvTotalAmount.setText("Subtotal: $" + String.format("%.2f", totalPrice));
                 break;
             case R.id.btn_remove:
                 amount = amount - 1;
@@ -73,16 +81,29 @@ public class Details extends AppCompatActivity implements View.OnClickListener{
                     totalPrice = amount * itemPrice;
                 }
                 btnAmount.setText(String.valueOf(amount));
-                tvTotalAmount.setText("Total: $" + String.format("%.2f", totalPrice));
+                tvTotalAmount.setText("Subtotal: $" + String.format("%.2f", totalPrice));
                 break;
             case R.id.btn_addToOrder:
-                int getId = getIntent().getIntExtra("id", 0);
-                Intent orderSummaryIntent = new Intent(Details.this, OrderActivity.class);
-                orderSummaryIntent.putExtra("itemName", menuItems[getId]);
-                orderSummaryIntent.putExtra("quantity", amount);
-                orderSummaryIntent.putExtra("totalPrice", totalPrice);
-                startActivity(orderSummaryIntent);
+                if (amount > 0) {
+                    // Add the item to the cartItems list and show a toast message
+                    int getId = getIntent().getIntExtra("id", 0);
+                    CartItem item = new CartItem(menuItems[getId], amount, totalPrice);
+                    cartItems.add(item);
+
+                    // Pass the cartItems list to CartActivity
+                    Intent cartIntent = new Intent(Details.this, CartActivity.class);
+                    cartIntent.putParcelableArrayListExtra("cartItems", cartItems);
+                    startActivity(cartIntent);
+
+                    Toast.makeText(this, "Item was added to your cart", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Please select a quantity greater than 0", Toast.LENGTH_SHORT).show();
+                }
                 break;
+            case R.id.btn_cancelOrder:
+                Intent cancelIntent = new Intent(Details.this, MainActivity.class); //this will go back to Main activity screen to start over
+                startActivity(cancelIntent);
         }
     }
 }
+
