@@ -12,9 +12,7 @@ import java.util.ArrayList;
 public class CartActivity extends AppCompatActivity {
 
     TextView tvCartItems, tvTotalPrice, tvTax;
-    double price = 0.0;
-    double tax = 10.5;
-    double totalWithTax = 0.0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +26,15 @@ public class CartActivity extends AppCompatActivity {
         tvTax = findViewById(R.id.tv_tax);
 
         StringBuilder sb = new StringBuilder();
-
+        double price = 0.0;
+        double tax = 10.5;
+        double totalWithTax = 0.0;
 
         for (CartItem item : cartItems) {
             sb.append(item.getItemName()).append(" - Quantity: ").append(item.getQuantity()).append("\n");
             price += item.getPrice() * item.getQuantity();
             tax = (price * 10.5) / 100;
-            totalWithTax += (price + tax);
+            totalWithTax += price + tax;
         }
 
         tvCartItems.setText(sb.toString());
@@ -47,9 +47,5 @@ public class CartActivity extends AppCompatActivity {
             Intent menuIntent = new Intent(CartActivity.this, Menu.class);
             startActivity(menuIntent);
         });
-
-
     }
 }
-
-//still need to fix the cart button 

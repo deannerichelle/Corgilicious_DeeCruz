@@ -99,17 +99,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-
-
             android:layout_marginBottom="57dp"
             android:text="@string/addToOrder" />
-
-        <Button
-            android:id="@+id/btn_cancelOrder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:text="@string/cancelOrder" />
 
     </RelativeLayout>
 

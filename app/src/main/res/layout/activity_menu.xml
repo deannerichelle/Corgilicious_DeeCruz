@@ -67,15 +67,14 @@
                                 android:scaleType="center" />
 
                         <!-- LottieAnimationView for heart fill animation -->
-                        <com.airbnb.lottie.LottieAnimationView
-                            android:id="@+id/lav_heartAnimation_1"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            app:lottie_fileName="heart_like.json"
-                            app:lottie_autoPlay="false"
-                            app:lottie_loop="false"
-                            android:clickable="true">
-                        </com.airbnb.lottie.LottieAnimationView>
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/lav_heartAnimation_1"
+                                android:layout_width="65dp"
+                                android:layout_height="65dp"
+                                android:clickable="true"
+                                app:lottie_autoPlay="false"
+                                app:lottie_fileName="heart_like.json"
+                                app:lottie_loop="false"></com.airbnb.lottie.LottieAnimationView>
                         </FrameLayout>
 
                         <TextView

@@ -17,7 +17,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener{
     ArrayList<CartItem> cartItems = new ArrayList<>(); //this will store the menu items when "addToOrder button" is clicked
     ImageView imgVCoffeeImg;
     TextView tvCoffeeName, tvItemDetails, tvTotalAmount;
-    Button btnAdd, btnAmount, btnRemove, btnAddToOrder, btnCancelOrder;
+    Button btnAdd, btnAmount, btnRemove, btnAddToOrder;
 
     String[] menuItems = {"Ube Latte", "Cappuccino", "Oreo Frappuccino", "Corgi Stickers"};
     String[] menuDetails = {"This creamy and colorful ube latte is sweet and refreshing! Ube extract is mixed with ice and almond milk, then topped with strong espresso." +
@@ -47,14 +47,11 @@ public class Details extends AppCompatActivity implements View.OnClickListener{
         btnAmount = findViewById(R.id.btn_amount);
         btnRemove = findViewById(R.id.btn_remove);
         btnAddToOrder = findViewById(R.id.btn_addToOrder);
-        btnCancelOrder = findViewById(R.id.btn_cancelOrder);
-
 
         btnAdd.setOnClickListener(this);
         btnAmount.setOnClickListener(this);
         btnRemove.setOnClickListener(this);
         btnAddToOrder.setOnClickListener(this);
-        btnCancelOrder.setOnClickListener(this);
 
         btnAmount.setText(String.valueOf(amount));
 
@@ -84,7 +81,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener{
                 tvTotalAmount.setText("Subtotal: $" + String.format("%.2f", totalPrice));
                 break;
             case R.id.btn_addToOrder:
-                if (amount > 0) {
+                if (amount > 0) { //this will make sure that the user "add" something
                     // Add the item to the cartItems list and show a toast message
                     int getId = getIntent().getIntExtra("id", 0);
                     CartItem item = new CartItem(menuItems[getId], amount, totalPrice);
@@ -93,17 +90,13 @@ public class Details extends AppCompatActivity implements View.OnClickListener{
                     // Pass the cartItems list to CartActivity
                     Intent cartIntent = new Intent(Details.this, CartActivity.class);
                     cartIntent.putParcelableArrayListExtra("cartItems", cartItems);
-                    startActivity(cartIntent);
+                    setResult(RESULT_OK, cartIntent);
+                    finish();
 
-                    Toast.makeText(this, "Item was added to your cart", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(this, "Please select a quantity greater than 0", Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.btn_cancelOrder:
-                Intent cancelIntent = new Intent(Details.this, MainActivity.class); //this will go back to Main activity screen to start over
-                startActivity(cancelIntent);
         }
     }
 }
-

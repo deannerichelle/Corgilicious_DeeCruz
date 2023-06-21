@@ -1,5 +1,9 @@
 package com.example.corgilicious_deecruz;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
@@ -9,18 +13,35 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 
 import java.util.ArrayList;
 
 public class Menu extends AppCompatActivity {
-
     LottieAnimationView likeUbe, likeCappuccino, likeOreo, likeSticker;
     ImageView imgV_ube_latte, imgV_cappuccino, imgV_oreo_frappe, imgV_corgi_sticker;
     Button btnCart;
 
     ArrayList<CartItem> cartItems = new ArrayList<>();
+
+    private ActivityResultLauncher<Intent> cartActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        // Retrieve the updated cartItems list from the DetailsActivity
+                        ArrayList<CartItem> updatedCartItems = result.getData().getParcelableArrayListExtra("cartItems");
+                        if (updatedCartItems != null) {
+                            cartItems = updatedCartItems;
+                            Toast.makeText(Menu.this, "Cart updated", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+            });
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,9 +150,8 @@ public class Menu extends AppCompatActivity {
         });
     }
     public void detailsScreen(int id){
-        Intent details = new Intent(this, Details.class);
+        Intent details = new Intent(Menu.this, Details.class);
         details.putExtra("id", id);
-        startActivity(details);
+        cartActivityResultLauncher.launch(details);
     }
-
 }
