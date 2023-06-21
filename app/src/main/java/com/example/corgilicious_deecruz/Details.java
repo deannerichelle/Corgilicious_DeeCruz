@@ -17,7 +17,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener{
     ArrayList<CartItem> cartItems = new ArrayList<>(); //this will store the menu items when "addToOrder button" is clicked
     ImageView imgVCoffeeImg;
     TextView tvCoffeeName, tvItemDetails, tvTotalAmount;
-    Button btnAdd, btnAmount, btnRemove, btnAddToOrder;
+    Button btnAdd, btnAmount, btnRemove, btnAddToOrder, btnBack;
 
     String[] menuItems = {"Ube Latte", "Cappuccino", "Oreo Frappuccino", "Corgi Stickers"};
     String[] menuDetails = {"This creamy and colorful ube latte is sweet and refreshing! Ube extract is mixed with ice and almond milk, then topped with strong espresso." +
@@ -47,11 +47,13 @@ public class Details extends AppCompatActivity implements View.OnClickListener{
         btnAmount = findViewById(R.id.btn_amount);
         btnRemove = findViewById(R.id.btn_remove);
         btnAddToOrder = findViewById(R.id.btn_addToOrder);
+        btnBack = findViewById(R.id.btn_back);
 
         btnAdd.setOnClickListener(this);
         btnAmount.setOnClickListener(this);
         btnRemove.setOnClickListener(this);
         btnAddToOrder.setOnClickListener(this);
+        btnBack.setOnClickListener(this);
 
         btnAmount.setText(String.valueOf(amount));
 
@@ -96,6 +98,10 @@ public class Details extends AppCompatActivity implements View.OnClickListener{
                 } else {
                     Toast.makeText(this, "Please select a quantity greater than 0", Toast.LENGTH_SHORT).show();
                 }
+                break;
+            case R.id.btn_back:
+                Intent cancelIntent = new Intent(Details.this, Menu.class); //this will go back to Main activity screen to start over
+                startActivity(cancelIntent);
                 break;
         }
     }

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/beans_background"
     tools:context=".Details">
 
     <RelativeLayout
@@ -78,8 +79,6 @@
             android:textColor="@color/white"
             android:textSize="16sp" />
 
-        <!--"@id/btn_orderNow"-->
-
         <TextView
             android:id="@+id/tv_total_amount"
             android:layout_width="wrap_content"
@@ -99,8 +98,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+
+
             android:layout_marginBottom="57dp"
             android:text="@string/addToOrder" />
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/goBack" />
 
     </RelativeLayout>
 

@@ -11,8 +11,7 @@ import java.util.ArrayList;
 
 public class CartActivity extends AppCompatActivity {
 
-    TextView tvCartItems, tvTotalPrice, tvTax;
-
+    TextView tvOrderSummary,tvCartItems, tvTotalPrice, tvTax;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,24 +20,25 @@ public class CartActivity extends AppCompatActivity {
 
         ArrayList<CartItem> cartItems = getIntent().getParcelableArrayListExtra("cartItems");
 
+        tvOrderSummary = findViewById(R.id.tv_orderSummary);
         tvCartItems = findViewById(R.id.tv_cart_items);
         tvTotalPrice = findViewById(R.id.tv_total_price);
         tvTax = findViewById(R.id.tv_tax);
 
         StringBuilder sb = new StringBuilder();
-        double price = 0.0;
-        double tax = 10.5;
-        double totalWithTax = 0.0;
+        double subtotal = 0.0;
+        double taxRate = 10.5; // Tax rate in percentage
 
         for (CartItem item : cartItems) {
             sb.append(item.getItemName()).append(" - Quantity: ").append(item.getQuantity()).append("\n");
-            price += item.getPrice() * item.getQuantity();
-            tax = (price * 10.5) / 100;
-            totalWithTax += price + tax;
+            subtotal += item.getPrice(); // Accumulate the individual item prices
         }
 
+        double tax = (subtotal * taxRate) / 100;
+        double totalWithTax = subtotal + tax;
+
         tvCartItems.setText(sb.toString());
-        tvTax.setText("Item Price: $" + String.format("%.2f", price) + "\nTax: $" + String.format("%.2f", tax));
+        tvTax.setText("Item Price: $" + String.format("%.2f", subtotal) + "\nTax: $" + String.format("%.2f", tax));
         tvTotalPrice.setText("Total Price: $" + String.format("%.2f", totalWithTax));
 
         Button btnBackToMenu = findViewById(R.id.btnBackToMenu);

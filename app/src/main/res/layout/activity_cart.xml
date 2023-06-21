@@ -5,36 +5,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/beans_background"
     android:orientation="vertical"
     tools:context=".CartActivity">
+
+    <TextView
+        android:id="@+id/tv_orderSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingBottom="10dp"
+        android:text="Order Summary:"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:background="#F2F2F2"/>
+
     <TextView
         android:id="@+id/tv_cart_items"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="18sp"
-        android:padding="16dp"
-        android:text="Cart Items"
-        android:background="#F2F2F2"
-        android:textStyle="bold" />
+        android:layout_below="@id/tv_orderSummary"
+        android:text="Cart Items:"
+        android:textSize="20sp"
+        android:background="#F2F2F2" />
     <TextView
         android:id="@+id/tv_tax"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_cart_items"
-        android:padding="16dp"
-        android:text=""
-        android:textSize="20sp"/>
+        android:text="Tax:"
+        android:textSize="20sp"
+        android:background="#F2F2F2"/>
 
     <TextView
         android:id="@+id/tv_total_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_tax"
-        android:padding="16dp"
         android:text="Total Price: $0.00"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:background="#F2F2F2"/>
 
     <Button
         android:id="@+id/btnBackToMenu"
