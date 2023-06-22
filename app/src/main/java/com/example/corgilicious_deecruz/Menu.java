@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class Menu extends AppCompatActivity {
     ImageView imgV_ube_latte, imgV_cappuccino, imgV_oreo_frappe, imgV_corgi_sticker;
-    Button btnCart;
+    Button btnCart, btnHome;
 
     ArrayList<CartItem> cartItems = new ArrayList<>();
 
@@ -52,6 +52,7 @@ public class Menu extends AppCompatActivity {
         imgV_corgi_sticker = findViewById(R.id.imgV_corgi_sticker);
 
         btnCart = findViewById(R.id.btn_cart);
+        btnHome = findViewById(R.id.btn_home);
 
         imgV_ube_latte.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +95,14 @@ public class Menu extends AppCompatActivity {
             }
         });
 
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent homeIntent = new Intent(Menu.this, MainActivity.class);
+                startActivity(homeIntent);
+            }
+        });
+
         // Check if there are any updated cartItems received from the CartActivity
         if (getIntent().hasExtra("cartItems")) {
             ArrayList<CartItem> updatedCartItems = getIntent().getParcelableArrayListExtra("cartItems");
@@ -101,7 +110,6 @@ public class Menu extends AppCompatActivity {
                 cartItems = updatedCartItems;
             }
         }
-
     }
     public void detailsScreen(int id){
         Intent details = new Intent(Menu.this, Details.class);

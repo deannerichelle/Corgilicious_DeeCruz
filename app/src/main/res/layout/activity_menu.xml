@@ -9,15 +9,22 @@
     android:orientation="vertical"
     tools:context=".Menu">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:padding="2dp"
+        android:background="@drawable/rounded_box_background">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Menu"
-        android:textSize="70sp"
+        android:textSize="60sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_marginTop="40dp"
+        android:textColor="@color/logo"
         android:layout_centerHorizontal="true"/>
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/menu_container"
         android:layout_width="match_parent"
@@ -191,4 +198,12 @@
         android:layout_margin="16dp"
         android:text="Cart"
         />
+    <Button
+        android:id="@+id/btn_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="16dp"
+        android:text="Go Home"/>
 </RelativeLayout>

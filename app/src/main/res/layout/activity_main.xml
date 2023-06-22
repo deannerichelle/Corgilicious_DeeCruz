@@ -7,18 +7,27 @@
     android:background="@drawable/beans_background"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tv_logo"
+    <!--added another linearlayout to add a white background shapre behind my logo-->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/corgilicious"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textColor="@color/logo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"/>
-    
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:background="@drawable/rounded_box_background">
+
+        <TextView
+            android:id="@+id/tv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/corgilicious"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/logo" />
+
+    </LinearLayout>
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/corgi_coffee"
         android:layout_width="200dp"
