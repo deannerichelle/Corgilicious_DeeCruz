@@ -83,7 +83,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener{
                 tvTotalAmount.setText("Subtotal: $" + String.format("%.2f", totalPrice));
                 break;
             case R.id.btn_addToOrder:
-                if (amount > 0) { //this will make sure that the user "add" something
+                if (amount > 0) { //this will make sure that the user "adds" something
                     // Add the item to the cartItems list and show a toast message
                     int getId = getIntent().getIntExtra("id", 0);
                     CartItem item = new CartItem(menuItems[getId], amount, totalPrice);

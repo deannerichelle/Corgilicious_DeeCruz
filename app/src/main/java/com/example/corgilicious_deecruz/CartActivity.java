@@ -45,7 +45,20 @@ public class CartActivity extends AppCompatActivity {
         btnBackToMenu.setOnClickListener(view -> {
             // Create an intent to go back to the menu activity
             Intent menuIntent = new Intent(CartActivity.this, Menu.class);
+            menuIntent.putParcelableArrayListExtra("cartItems", cartItems);
             startActivity(menuIntent);
+        });
+
+        //this will clear the items from the cart
+        Button btnCancelOrder = findViewById(R.id.btn_cancelOrder);
+        btnCancelOrder.setOnClickListener(view -> {
+            // Clear the cart by removing all items
+            cartItems.clear();
+
+            // Create an intent to go back to the MainActivity
+            Intent mainIntent = new Intent(CartActivity.this, MainActivity.class);
+            mainIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // Clear all previous activities
+            startActivity(mainIntent);
         });
     }
 }

@@ -35,7 +35,7 @@ public class Menu extends AppCompatActivity {
                         ArrayList<CartItem> updatedCartItems = result.getData().getParcelableArrayListExtra("cartItems");
                         if (updatedCartItems != null) {
                             cartItems = updatedCartItems;
-                            Toast.makeText(Menu.this, "Cart updated", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Menu.this, "Item added to cart!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -93,6 +93,15 @@ public class Menu extends AppCompatActivity {
                 startActivity(cartIntent);
             }
         });
+
+        // Check if there are any updated cartItems received from the CartActivity
+        if (getIntent().hasExtra("cartItems")) {
+            ArrayList<CartItem> updatedCartItems = getIntent().getParcelableArrayListExtra("cartItems");
+            if (updatedCartItems != null) {
+                cartItems = updatedCartItems;
+            }
+        }
+
     }
     public void detailsScreen(int id){
         Intent details = new Intent(Menu.this, Details.class);
